@@ -13,3 +13,94 @@ body * {
 script {
     display: none;
 }
+
+
+body {
+    background-color: #f5f5f5;
+}
+.container {
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+                "form"
+                ".";
+    width: 100%;
+    padding: 20px;
+    gap: 15px 40px;
+}
+
+
+    .container > .form {
+        grid-area: form;
+        background-color: yellow;    }
+
+
+
+    .container > .item {
+        background-color: #ffffff;
+        padding: 20px 20px 10px;
+        box-shadow: 0 2px 8px #000005;
+        position: relative;
+        border-radius: 8px;
+    }
+
+
+        .container > .item > .status {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 10px;
+            background-color: #cccccc;
+        }
+
+                .container > .item > .status.todo {
+                    background-color: yellow;
+                }
+                .container > .item > .status.in-progress {
+                    background-color: #36f;
+                }
+                .container > .item > .status.done {
+                    background-color: #0f3;
+                }
+
+
+        .container > .item > .description {
+            width: 100%;
+            font-size: 22px;
+            line-height: 26px;
+        }
+
+
+        .container > .item > .deadline {
+            width: 100%;
+        }
+
+
+
+/* responsive */
+@media (min-width:500px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "form form"
+        ". .";}  
+}
+
+
+@media (min-width:900px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "form form form"
+        ". . .";}  
+}
+
+
+@media (min-width:1300px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "form form form form"
+        ". . . .";}  
+}
